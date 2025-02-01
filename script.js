@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     fetch('contents.html')
     .then(response => response.text())
     .then(data => {
-      const container = document.getElementById('contentContainer2');
+      const container = document.getElementById('contentContainer3');
       container.innerHTML = data;
       return waitForIframes(container);
     })
