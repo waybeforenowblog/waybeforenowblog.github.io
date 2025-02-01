@@ -144,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         container.innerHTML = '<p>Error loading content. Please refresh the page.</p>';
       }
     });
+    
   }
 
   // Initial load
