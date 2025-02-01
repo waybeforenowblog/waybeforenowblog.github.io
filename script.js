@@ -82,6 +82,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function to handle content loading
   function loadContent() {
+            // Load contents.html
+            fetch('contents.html')
+            .then(response => response.text())
+            .then(data => {
+              const container = document.getElementById('contentContainer3');
+              container.innerHTML = data;
+              return waitForIframes(container);
+            })
+            .then(() => {
+              // Set up button after content and iframes are loaded
+              setupSeeMoreButton();
+              setupTrackListScrolling();
+            })
+            .catch(error => {
+              console.error('Error loading contents:', error);
+              const container = document.getElementById('contentContainer3');
+              if (container) {
+                container.innerHTML = '<p>Error loading content. Please refresh the page.</p>';
+              }
+            });
     // Load content.html
     fetch('content.html')
       .then(response => response.text())
@@ -124,27 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-         // Load contents.html
-    fetch('contents.html')
-    .then(response => response.text())
-    .then(data => {
-      const container = document.getElementById('contentContainer3');
-      container.innerHTML = data;
-      return waitForIframes(container);
-    })
-    .then(() => {
-      // Set up button after content and iframes are loaded
-      setupSeeMoreButton();
-      setupTrackListScrolling();
-    })
-    .catch(error => {
-      console.error('Error loading contents:', error);
-      const container = document.getElementById('contentContainer3');
-      if (container) {
-        container.innerHTML = '<p>Error loading content. Please refresh the page.</p>';
-      }
-    });
-    
+
   }
 
   // Initial load
