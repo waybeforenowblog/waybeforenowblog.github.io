@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     .catch(error => {
       console.error('Error loading contents:', error);
-      const container = document.getElementById('contentContainer');
+      const container = document.getElementById('contentContainer3');
       if (container) {
         container.innerHTML = '<p>Error loading content. Please refresh the page.</p>';
       }
