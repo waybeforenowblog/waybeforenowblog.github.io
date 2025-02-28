@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 fetch('contents2.html')
                 .then(response => response.text())
                 .then(data => {
-                  const container = document.getElementById('contentContainer3');
+                  const container = document.getElementById('contentContainer4');
                   container.innerHTML = data;
                   return waitForIframes(container);
                 })
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 })
                 .catch(error => {
                   console.error('Error loading contents2:', error);
-                  const container = document.getElementById('contentContainer3');
+                  const container = document.getElementById('contentContainer4');
                   if (container) {
                     container.innerHTML = '<p>Error loading content. Please refresh the page.</p>';
                   }
