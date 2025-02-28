@@ -82,6 +82,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Function to handle content loading
   function loadContent() {
+                // Load contents2.html
+                fetch('contents2.html')
+                .then(response => response.text())
+                .then(data => {
+                  const container = document.getElementById('contentContainer3');
+                  container.innerHTML = data;
+                  return waitForIframes(container);
+                })
+                .then(() => {
+                  // Set up button after content and iframes are loaded
+                  setupSeeMoreButton();
+                  setupTrackListScrolling();
+                })
+                .catch(error => {
+                  console.error('Error loading contents2:', error);
+                  const container = document.getElementById('contentContainer3');
+                  if (container) {
+                    container.innerHTML = '<p>Error loading content. Please refresh the page.</p>';
+                  }
+                });
             // Load contents.html
             fetch('contents.html')
             .then(response => response.text())
