@@ -183,6 +183,26 @@ document.addEventListener('DOMContentLoaded', () => {
           container.innerHTML = '<p>Error loading content. Please refresh the page.</p>';
         }
       });
+    // Load contentses.html
+    fetch('contentses.html')
+      .then(response => response.text())
+      .then(data => {
+        const container = document.getElementById('contentContainer5');
+        container.innerHTML = data;
+        return waitForIframes(container);
+      })
+      .then(() => {
+        // Set up button after content and iframes are loaded
+        setupSeeMoreButton();
+        setupTrackListScrolling();
+      })
+      .catch(error => {
+        console.error('Error loading contentses:', error);
+        const container = document.getElementById('contentContainer5');
+        if (container) {
+          container.innerHTML = '<p>Error loading content. Please refresh the page.</p>';
+        }
+      });
 
 
   }
